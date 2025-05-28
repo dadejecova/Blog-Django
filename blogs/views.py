@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from blogs.models import Blog, Category
 
@@ -6,7 +6,14 @@ from blogs.models import Blog, Category
 def posts_by_category(request, category_id):
     # Fetch posts by category_id
     posts = Blog.objects.filter(status='Published', category = category_id)
+    # use try-except to handle the case where category_id does not exist
+    try:
+        category = Category.objects.get(pk=category_id)
+    except:
+        # redirect user to home page if category not found
+        return redirect('home')
     context = {
         'posts': posts,
+        'category': category,
     }
     return render(request,'posts_by_category.html', context)
