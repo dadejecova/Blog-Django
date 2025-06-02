@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import About
+from .models import About, SocialLink
 
 class AboutAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
@@ -10,3 +10,4 @@ class AboutAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(About, AboutAdmin)
+admin.site.register(SocialLink)

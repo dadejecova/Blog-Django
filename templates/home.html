@@ -52,13 +52,17 @@
           <h4 class="font-italic">{{ about.about_heading }}</h4>
           <p class="mb-0">{{ about.about_description }}</p>
         </div>
+
+        {% if social_links %}
         <div class="p-3">
           <h4 class="font-italic">Follow Us</h4>
           <ol class="list-unstyled">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">LinkedIn</a></li>
+            {% for i in social_links %}
+            <li><a class="text-dark" href="{{ i.link }}" target="_blank">{{ i.platform }}</a></li>
+            {% endfor %}
           </ol>
         </div>
+        {% endif %}
       </aside><!-- /.blog-sidebar -->
     </div><!-- /.row -->
   </main><!-- /.container -->

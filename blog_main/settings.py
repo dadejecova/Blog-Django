@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'blogs.context_processors.get_categories',  # This context processor retrieves all categories from the database
+                'blogs.context_processors.get_social_links',  # This context processor retrieves all social links from the database
             ],
         },
     },
