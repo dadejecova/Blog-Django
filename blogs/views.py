@@ -19,3 +19,7 @@ def posts_by_category(request, category_id):
         'category': category,
     }
     return render(request,'posts_by_category.html', context)
+
+
+def blogs(request, slug):
+    return render(request, 'blogs.html')
