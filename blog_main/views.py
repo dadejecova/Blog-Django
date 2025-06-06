@@ -1,5 +1,5 @@
 from django.http import HttpResponse ### delete this line
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from assignment.models import About
 from blog_main.forms import RegistrationForm
 from blogs.models import Blog, Category
@@ -27,7 +27,14 @@ def home(request):
 
 
 def register(request):
-    form = RegistrationForm()
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Optionally, you can redirect to a success page or login page
+            return redirect('register')  # Redirect to home after registration
+    else:
+        form = RegistrationForm()
     context = {
         'form': form,
     }
