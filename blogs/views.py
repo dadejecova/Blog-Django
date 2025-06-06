@@ -41,8 +41,8 @@ def search(request):
         status='Published'
 
     )
-    print(blogs)
     context = {
         'blogs': blogs,
+        'keyword': keyword,
     }
     return render(request, 'search.html', context)
