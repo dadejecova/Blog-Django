@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blogs',
     'assignment',
+    'dashboards',
     'crispy_forms',  # For better form rendering
     'crispy_bootstrap4',  # For Bootstrap 4 support in crispy forms
 ]
