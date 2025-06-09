@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="row">
+    <!--  left Sidebar  -->
+    {% include 'dashboard/sidebar.html' %}
+    <!--  left Sidebar  -->
+    <div class="col-md-9">
+        <h2>Agregar nueva categoría</h2>
+        
+        <form action="{% url 'add_category' %}" method="post" style="width: 500px;">
+            {% csrf_token %} 
+            {{ form |crispy }}
+            <button type="submit" class="btn btn-outline-warning float-right ">Aceptar</button>
+        </form>
+        <br>
+    </div>
+</div>
+
+{% endblock %}
