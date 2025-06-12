@@ -60,3 +60,7 @@ def posts(request):
         'posts': posts,
     }
     return render(request, 'dashboard/posts.html', context)
+
+def add_post(request):
+    return render(request, 'dashboard/add_post.html')
+# Note: The add_post function is currently a placeholder and does not handle form submission or post creation.
