@@ -1,9 +1,8 @@
 from django.shortcuts import get_object_or_404, redirect, render
-
 from blogs.models import Blog, Category
 from django.contrib.auth.decorators import login_required
-
 from dashboards.forms import BlogPostForm, CategoryForm
+from django.template.defaultfilters import slugify
 
 @login_required(login_url='login')
 # Create your views here.
@@ -68,9 +67,10 @@ def add_post(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            # Save the post with the current user as the author
             post.save()
-            
+            title = form.cleaned_data['title']
+            post.slug = slugify(title) + '-' + str(post.id)
+            post.save()
             return redirect('posts')
         else:
             print("Form is not valid")
