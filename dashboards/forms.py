@@ -16,6 +16,7 @@ class BlogPostForm(forms.ModelForm):
             'title',
             'category',
             'featured_image',
+            'short_description',
             'blog_body',
             'status',
             'is_featured'
