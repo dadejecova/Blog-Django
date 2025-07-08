@@ -121,6 +121,13 @@ def users(request):
     return render(request, 'dashboard/users.html', context)
 
 def add_user(request):
+    if request.method == 'POST':
+        form = AddUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('users')
+        else:
+            print(form.errors)
     form = AddUserForm()
     context = {
         'form': form,
