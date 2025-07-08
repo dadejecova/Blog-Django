@@ -7,6 +7,7 @@
     {% include 'dashboard/sidebar.html' %}
     <!--  left Sidebar  -->
     <div class="col-md-9">
+        {% if perms.auth.view_user %}
         <h2>Agregar nuevo usuario</h2>
         
         <form action="{% url 'add_user' %}" method="post" style="width: 500px;">
@@ -16,6 +17,9 @@
         </form>
         <br>
     </div>
+    {% else %}
+    <h5>No tiene los permisos para ver este contenido</h5>
+    {% endif %}
 </div>
 
 {% endblock %}

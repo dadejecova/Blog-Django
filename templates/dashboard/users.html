@@ -7,6 +7,7 @@
     {% include 'dashboard/sidebar.html' %}
     <!--  right -->
     <div class="col-md-9">
+        {% if perms.auth.view_user %}
         <h2>Todos los usuarios</h2>
         <a href="{% url 'add_user' %}"><button  type="button" class="btn btn-outline-warning mb-2">Agregar nuevo usuario</button></a>
         <table class="table table-hover">
@@ -41,6 +42,9 @@
             {% endfor %}
             </tbody>
         </table>
+        {% else %}
+        <h5>No tiene los permisos para ver este contenido</h5>
+        {% endif %}
     </div>
 </div>
 
