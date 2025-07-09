@@ -23,7 +23,25 @@
                 <section class="mb-5">
                     <p class="fs-5 mb-4">{{ single_blog.short_description }}</p>
                     <p class="fs-5 mb-4">{{ single_blog.blog_body }}</p>
-                    </section>
+
+                    <!-- Comments-->
+                    <h4> Comments ({{ comments.count }})</h4>
+                    {% if comments %}
+                        {% for comment in comments %}
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <strong>{{ comment.user.username }}</strong>:
+                                        <br>
+                                        {{ comment.comment }}
+                                    </p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                    No hay comentarios
+                    {% endif %}
+                </section>
             </article>
         </div>
         <!-- Side widgets-->
