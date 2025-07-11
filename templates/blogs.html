@@ -44,6 +44,7 @@
                     <br>
                     <!-- Comment form-->
                     <div class="form-group">
+                        {% if user.is_authenticated %}
                         <form action="" method="POST">
                             {% csrf_token %}
                             <div class="form-group">
@@ -52,6 +53,10 @@
                             </div>
 
                         </form>
+                        {% else %}
+                        <p class="text-danger">Debes iniciar sesión para comentar</p>
+                        <a href="{% url 'login' %}" class="btn btn-primary">Iniciar sesión</a>
+                        {% endif %}
                     </div>
                 </section>
             </article>
