@@ -41,6 +41,18 @@
                     {% else %}
                     No hay comentarios
                     {% endif %}
+                    <br>
+                    <!-- Comment form-->
+                    <div class="form-group">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <textarea name="comment" id="" class="form-control" placeholder="Escribe tu comentario"></textarea>
+                                <input type="submit" value="submit" class="btn btn-primary-mt-2">
+                            </div>
+
+                        </form>
+                    </div>
                 </section>
             </article>
         </div>
